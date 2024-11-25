@@ -43,16 +43,15 @@ Label {
     onTextChanged: refitText()
 
     // calculate the existing precision of the passed num
-    function trailing(num) {
-        var nn = num.toString();
-        var dp = nn.indexOf(".");
-        return dp == -1 ? 0 : nn.length - dp - 1
+    function trailing(num: string): int {
+        var dp = num.indexOf(".");
+        return dp == -1 ? 0 : num.length - dp - 1
     }
     // format number according to existing precision and current locale
-    function localeformat(num) {
+    function localeformat(num: string): string {
         return Number(num).toLocaleString(Qt.locale(), 'f', trailing(num))
     }
-    function refitText() {
+    function refitText(): void {
         if (DeviceInfo.hasRoundScreen) {
             switch (displayTextLength.length) {
                 case 0:

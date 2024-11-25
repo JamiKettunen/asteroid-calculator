@@ -32,7 +32,7 @@ Application {
     property string displayPrevious: ""
     property string displayOperation: ""
 
-    function doOp(operation) {
+    function doOp(operation: string) {
         CalcEngine.doOperation(operation)
         displayOperation = CalcEngine.currentOperation
         displayText = CalcEngine.currentText
